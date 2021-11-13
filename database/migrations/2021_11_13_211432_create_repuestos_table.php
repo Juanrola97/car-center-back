@@ -14,7 +14,11 @@ class CreateRepuestosTable extends Migration
     public function up()
     {
         Schema::create('repuestos', function (Blueprint $table) {
-            $table->id();
+            $table->id('IdRepuesto');
+            $table->string('Nombre');
+            $table->string('Cantidad');
+            $table->string('Precio');
+            $table->string('Descuento');
             $table->timestamps();
         });
     }

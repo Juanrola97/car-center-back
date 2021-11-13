@@ -14,7 +14,10 @@ class CreateMantenimientosTable extends Migration
     public function up()
     {
         Schema::create('mantenimientos', function (Blueprint $table) {
-            $table->id();
+            $table->id('IdMantenimiento');
+            $table->foreignId('IdServicio')->constrained('servicios');
+            $table->foreignId('IdRepuesto')->constrained('repuestos');
+            $table->string('Nombre');
             $table->timestamps();
         });
     }

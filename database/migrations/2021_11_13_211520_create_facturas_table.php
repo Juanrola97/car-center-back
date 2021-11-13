@@ -14,7 +14,11 @@ class CreateFacturasTable extends Migration
     public function up()
     {
         Schema::create('facturas', function (Blueprint $table) {
-            $table->id();
+            $table->id('IdFactura');
+            $table->foreignId('clientes_id')->constrained('clientes');
+            $table->foreignId('mecanicos_id')->constrained('mecanicos');
+            $table->foreignId('mantenimientos_id')->constrained('mantenimientos');
+            $table->string('PagoTotal');
             $table->timestamps();
         });
     }
